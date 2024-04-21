@@ -1,0 +1,15 @@
+@import url('./../../styles/global.css');
+
+.buttonOuter{
+    border: 1px solid white;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 40px;
+    font-weight: var(--font-weight-semi-bold);
+    letter-spacing: 2px;
+}
+
+.filled{
+    background-color: white;
+    color: var(--dark-text);
+}

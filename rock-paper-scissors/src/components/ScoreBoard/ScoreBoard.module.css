@@ -1,0 +1,19 @@
+@import url("./../../styles/global.css");
+
+.container {
+  background-color: white;
+  height: 80px;
+  width: 80px;
+  border-radius: 8px;
+  color: var(--score-text);
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score {
+  color: var(--dark-text);
+  font-size: 42px;
+}
