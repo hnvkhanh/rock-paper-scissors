@@ -1,19 +1,31 @@
-import classNames from 'classnames'
-import css from './Button.module.css'
+import classNames from "classnames";
+import { ReactNode } from "react";
+
+import css from "./Button.module.css";
 
 type Props = {
-  buttonText: string,
-  filled?: boolean
-}
+  children: ReactNode;
+  filled?: boolean;
+  className?: string;
+  onClick?: () => void;
+};
 
 const Button = (props: Props) => {
-  const { buttonText, filled } = props
+  const { children, filled, onClick, className } = props;
   return (
-    <div className={classNames({
-      [css.buttonOuter]: true,
-      [css.filled]: filled
-    })}>{buttonText}</div>
-  )
-}
+    <div
+      className={classNames(
+        {
+          [css.buttonOuter]: true,
+          [css.filled]: filled,
+        },
+        className
+      )}
+      onClick={onClick}
+    >
+      {children}
+    </div>
+  );
+};
 
-export default Button
+export default Button;
