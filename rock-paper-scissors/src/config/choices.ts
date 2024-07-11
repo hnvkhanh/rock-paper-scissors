@@ -4,48 +4,54 @@ import scissorsImage from '../assets/choices/icon-scissors.svg';
 import lizardImage from '../assets/choices/icon-lizard.svg';
 import spockImage from '../assets/choices/icon-spock.svg';
 
+export const ROCK = 'rock';
+export const PAPER = 'paper';
+export const SCISSORS = 'scissors';
+export const LIZARD = 'lizard';
+export const SPOCK = 'spock';
+
 export const  DEFAULT_CHOICES = {
     rock: {
-        name: 'rock',
-        defeats: ['scissors'],
+        name: ROCK,
+        defeats: [SCISSORS],
         image: rockImage,
     },
     paper: {
-        name: 'paper',
-        defeats: ['rock'],
+        name: PAPER,
+        defeats: [ROCK],
         image: paperImage,
     },
     scissors: {
-        name: 'scissors',
-        defeats: ['paper'],
+        name: SCISSORS,
+        defeats: [PAPER],
         image: scissorsImage,
     },
 }
 
 export const EXTRA_CHOICES = {
     lizard: {
-        name: 'lizard',
-        defeats: ['paper', 'spock'],
+        name: LIZARD,
+        defeats: [PAPER, SPOCK],
         image: lizardImage,
     },
     spock: {
-        name: 'spock',
-        defeats: ['scissors', 'rock'],
+        name: SPOCK,
+        defeats: [SCISSORS, ROCK],
         image: spockImage,
     },
     scissors: {
-        name: 'scissors',
-        defeats: ['paper', 'lizard'],
+        name: SCISSORS,
+        defeats: [PAPER, LIZARD],
         image: scissorsImage,
     },
     paper: {
-        name: 'paper',
-        defeats: ['rock', 'spock'],
+        name: PAPER,
+        defeats: [ROCK, SPOCK],
         image: paperImage,
     },
     rock: {
-        name: 'rock',
-        defeats: ['scissors', 'lizard'],
+        name: ROCK,
+        defeats: [SCISSORS, LIZARD],
         image: rockImage,
     },
 }

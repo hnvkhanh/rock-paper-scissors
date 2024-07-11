@@ -7,26 +7,6 @@
     margin: 30px auto;
 }
 
-.choicesContainer{
-    background: url("../../assets/background/bg-triangle.svg") no-repeat;
-    background-size: 200px 200px;
-    background-position: center;
-    height: 300px;
-    width: 300px;
-    margin: auto;
-}
-
-.firstRow{
-    display: flex;
-    justify-content: space-between;
-}
-
-.secondRow{
-   display: flex;
-   justify-content: center;
-   margin-top: 20px;
-}
-
 .ruleContainer {
     height: 100%;
     display: flex;

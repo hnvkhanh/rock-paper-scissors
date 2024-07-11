@@ -1,28 +1,32 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Button from "../../components/Button/Button";
 import Modal, { ModalRef } from "../../components/Modal/Modal";
-import PlayerChoice from "../../components/PlayerChoice/PlayerChoice";
-import { DEFAULT_CHOICES } from "../../config/choices";
+import rulesImage from "../../assets/rules/image-rules.svg";
+import GameStartingStage from "../../components/GameStartingStage/GameStartingStage";
+import { GameStage } from "../../config/types";
+import GamePlayingStage from "../../components/GamePlayingStage/GamePlayingStage";
+import GameEndStage from "../../components/GameEndStage/GameEndStage";
+
 import css from "./MainGameContainer.module.css";
 
-import rulesImage from "../../assets/rules/image-rules.svg";
-
-type Props = {};
-
-const MainGameContainer = (props: Props) => {
+const MainGameContainer = () => {
+  const [stage, setStage] = useState<GameStage>(GameStage.START);
+  const [playerChoice, setPlayerChoice] = useState<string | null>(null);
   const modalRef = useRef<ModalRef>(null);
+  const currentStage = (() => {
+    switch (stage) {
+      case GameStage.PLAYING:
+        return <GamePlayingStage playerChoice={playerChoice} updateState={() => setStage(GameStage.END)} />
+      case GameStage.END:
+        return <GameEndStage />
+      default:
+        return <GameStartingStage setPlayerChoice={setPlayerChoice} updateState={() => setStage(GameStage.PLAYING)} />;
+    }
+  })();
   return (
     <>
       <div className={css.container}>
-        <div className={css.choicesContainer}>
-          <div className={css.firstRow}>
-            <PlayerChoice properties={DEFAULT_CHOICES.paper} />
-            <PlayerChoice properties={DEFAULT_CHOICES.scissors} />
-          </div>
-          <div className={css.secondRow}>
-            <PlayerChoice properties={DEFAULT_CHOICES.rock} />
-          </div>
-        </div>
+        {currentStage}
         <div className={css.rules}>
           <Button onClick={() => modalRef?.current?.open()}>RULES</Button>
         </div>

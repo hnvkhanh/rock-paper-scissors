@@ -12,6 +12,8 @@
   font-family: 'Barlow Semi Condensed', sans-serif;
   padding: 20px;
 
+  --choice-placeholder-background: hsl(214, 47%, 23%);
+
   --scissors-gradient-end: hsl(39, 89%, 49%);
   --scissors-gradient-start: hsl(40, 84%, 53%);
 
