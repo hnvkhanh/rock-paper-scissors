@@ -1,12 +1,13 @@
+import { useState } from 'react';
 import HeaderConatiner from './containers/HeaderContainer/HeaderConatiner'
 import MainGameContainer from './containers/MainGameContainter/MainGameContainer'
 
 function App() {
-
+  const [score, setScore] = useState<number>(0);
   return (
     <>
-      <HeaderConatiner />
-      <MainGameContainer />
+      <HeaderConatiner score={score} />
+      <MainGameContainer score={score} setScore={setScore} />
     </>
   )
 }

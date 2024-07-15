@@ -1,7 +1,7 @@
 import ScoreBoard from "../../components/ScoreBoard/ScoreBoard";
 import css from "./HeaderConatiner.module.css";
 
-const HeaderConatiner = () => {
+const HeaderConatiner = ({ score }: { score: number }) => {
   return (
     <div className={css.container}>
       <div className={css.titles}>
@@ -9,7 +9,7 @@ const HeaderConatiner = () => {
         <span>PAPER</span>
         <span>SCISSORS</span>
       </div>
-      <ScoreBoard score={0} />
+      <ScoreBoard score={score} />
     </div>
   );
 };

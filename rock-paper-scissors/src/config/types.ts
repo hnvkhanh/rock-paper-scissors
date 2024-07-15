@@ -4,6 +4,8 @@ export enum GameStage {
   END,
 }
 
+export type GameResult = 'win' | 'lose' | 'draw';
+
 export type ChoiceProperties = {
   name: string,
   image: string,

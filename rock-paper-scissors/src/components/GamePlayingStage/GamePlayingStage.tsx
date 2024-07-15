@@ -1,17 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import get from 'lodash/get';
 import { DEFAULT_CHOICES } from '../../config/choices';
-import { randomChoice } from '../../utils/helpers';
 import PlayerChoice from '../PlayerChoice/PlayerChoice';
 
 import css from './GamePlayingStage.module.css'
+import { getResults } from '../../utils/helpers';
 
-const GamePlayingStage = ({ updateState, playerChoice }: { updateState: () => void; playerChoice: string | null }) => {
+const GamePlayingStage = ({ updateState, playerChoice, houseChoice }: {
+  updateState: (updatedScore: number) => void;
+  playerChoice: string | null;
+  houseChoice: string
+}) => {
+  
   const [showHouseChoice, setShowHouseChoice] = useState(false);
+  const updatedScore = getResults(playerChoice, houseChoice) === 'win' ? 1 : 0;
+
+  useEffect(() => {
+    const timeoutIdState = setTimeout(() => updateState(updatedScore), 5000);
+    const timeoutIdShowChoice = setTimeout(() => setShowHouseChoice(true), 3000);
+    return () => {
+      clearTimeout(timeoutIdState);
+      clearTimeout(timeoutIdShowChoice);
+    };
+  }, [updateState, updatedScore]);
+
   if (!playerChoice) return null;
-  setTimeout(() => updateState(), 5000);
-  setTimeout(() => setShowHouseChoice(true), 3000);
-  const houseChoice = randomChoice(Object.keys(DEFAULT_CHOICES));
+
   const houseChoiceComponent = showHouseChoice
     ? <PlayerChoice properties={get(DEFAULT_CHOICES, houseChoice)} />
     : <div className={css.choicePlaceholder}></div>;
