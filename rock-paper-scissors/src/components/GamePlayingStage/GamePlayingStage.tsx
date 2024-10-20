@@ -5,15 +5,19 @@ import PlayerChoice from '../PlayerChoice/PlayerChoice';
 
 import css from './GamePlayingStage.module.css'
 import { getResults } from '../../utils/helpers';
+import { LOSE, WIN } from '../../config/types';
 
 const GamePlayingStage = ({ updateState, playerChoice, houseChoice }: {
   updateState: (updatedScore: number) => void;
-  playerChoice: string | null;
+  playerChoice: string;
   houseChoice: string
 }) => {
-  
+
   const [showHouseChoice, setShowHouseChoice] = useState(false);
-  const updatedScore = getResults(playerChoice, houseChoice) === 'win' ? 1 : 0;
+  let updatedScore = 0;
+  const result = getResults(playerChoice, houseChoice);
+  if (result === WIN) updatedScore = 1;
+  if (result === LOSE) updatedScore = -1;
 
   useEffect(() => {
     const timeoutIdState = setTimeout(() => updateState(updatedScore), 5000);
@@ -24,7 +28,7 @@ const GamePlayingStage = ({ updateState, playerChoice, houseChoice }: {
     };
   }, [updateState, updatedScore]);
 
-  if (!playerChoice) return null;
+  if (playerChoice.length === 0) return null;
 
   const houseChoiceComponent = showHouseChoice
     ? <PlayerChoice properties={get(DEFAULT_CHOICES, houseChoice)} />

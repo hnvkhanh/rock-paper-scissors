@@ -1,12 +1,8 @@
 import { PAPER, ROCK, SCISSORS } from "../config/choices";
-import { GameResult } from "../config/types";
-
-const LOSE = 'lose';
-const DRAW = 'draw';
-const WIN = 'win';
+import { DRAW, GameResult, LOSE, WIN } from "../config/types";
 
 export const randomChoice = (choices: string[]): string => {
-  const randomChoiceIndex = Math.floor(Math.random() * (choices.length + 1));
+  const randomChoiceIndex = Math.floor(Math.random() * choices.length);
   return choices[randomChoiceIndex];
 }
 

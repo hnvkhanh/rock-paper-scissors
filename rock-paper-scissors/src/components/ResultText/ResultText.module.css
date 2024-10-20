@@ -1,0 +1,7 @@
+.result {
+  color: white;
+  font-size: 54px;
+  font-weight: var(--font-weight-bold);
+  margin: 10px;
+  text-transform: uppercase;
+}

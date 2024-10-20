@@ -55,3 +55,6 @@ export const EXTRA_CHOICES = {
         image: rockImage,
     },
 }
+
+export const DEFAULT_CHOICES_LIST = [ROCK, PAPER, SCISSORS];
+export const EXTRA_CHOICES_LIST = [ROCK, PAPER, SCISSORS, LIZARD, SPOCK];
