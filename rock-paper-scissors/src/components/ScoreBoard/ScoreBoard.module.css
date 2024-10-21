@@ -17,3 +17,18 @@
   color: var(--dark-text);
   font-size: 42px;
 }
+
+@media (min-width: 575px) {
+  .container {
+    height: 120px;
+    width: 150px;
+    border-radius: 10px;
+    font-size: large;
+  }
+
+  .score {
+    font-size: 76px;
+    line-height: 0.85;
+  }
+  
+}

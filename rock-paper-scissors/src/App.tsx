@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <HeaderConatiner score={score} />
-      <MainGameContainer score={score} setScore={setScore} />
+      <MainGameContainer setScore={setScore} />
     </>
   )
 }

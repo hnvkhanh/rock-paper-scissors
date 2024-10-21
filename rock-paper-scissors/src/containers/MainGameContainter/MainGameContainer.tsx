@@ -10,6 +10,7 @@ import { DEFAULT_CHOICES, DEFAULT_CHOICES_LIST } from "../../config/choices";
 import { randomChoice } from "../../utils/helpers";
 
 import css from "./MainGameContainer.module.css";
+import GameStageManager from "../../components/GameStageManager/GameStageManager";
 
 const MainGameContainer = ({ setScore }: {
   setScore: (prevState: number | ((score: number) => number)) => void
@@ -20,45 +21,20 @@ const MainGameContainer = ({ setScore }: {
   const [result, setResult] = useState<string>('');
   const modalRef = useRef<ModalRef>(null);
 
-  const currentStage = (() => {
-    switch (stage) {
-      case GameStage.PLAYING:
-        return <GamePlayingStage
-          playerChoice={playerChoice}
-          houseChoice={houseChoice}
-          updateState={(updatedScore: number) => {
-            setStage(GameStage.END);
-            setScore((score: number) => score + updatedScore);
-            switch (updatedScore) {
-              case 1:
-                setResult(WIN);
-                break;
-              case -1:
-                setResult(LOSE);
-                break;
-              default:
-                setResult(DRAW);
-                break;
-            }
-          }}
-        />
-      case GameStage.END:
-        return <GameEndStage
-          playerChoice={playerChoice}
-          houseChoice={houseChoice}
-          result={result}
-          updateState={() => {
-            setStage(GameStage.START);
-            setHouseChoice(randomChoice(DEFAULT_CHOICES_LIST));
-          }} />
-      default:
-        return <GameStartingStage setPlayerChoice={setPlayerChoice} updateState={() => setStage(GameStage.PLAYING)} />;
-    }
-  })();
   return (
     <>
       <div className={css.container}>
-        {currentStage}
+        <GameStageManager
+          stage={stage}
+          playerChoice={playerChoice}
+          houseChoice={houseChoice}
+          result={result}
+          setStage={setStage}
+          setScore={setScore}
+          setHouseChoice={setHouseChoice}
+          setResult={setResult}
+          setPlayerChoice={setPlayerChoice}
+        />
         <div className={css.rules}>
           <Button onClick={() => modalRef?.current?.open()}>RULES</Button>
         </div>

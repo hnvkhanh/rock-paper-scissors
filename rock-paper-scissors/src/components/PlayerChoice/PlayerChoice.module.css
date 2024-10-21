@@ -10,12 +10,24 @@
   position: relative;
 }
 
+@media (min-width: 575px) {
+  .container {
+    width: 250px;
+    height: 250px;
+  }
+
+  img {
+    width: 45%;
+  }
+  
+}
+
 .container:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
-.imageContainer{
+.imageContainer {
   width: 75%;
   height: 75%;
   border-radius: 50%;
@@ -25,7 +37,6 @@
   align-items: center;
   box-shadow: inset 0px 10px 0px -5px rgba(0, 0, 0, 0.15);
 }
-
 
 .scissors {
   background: linear-gradient(

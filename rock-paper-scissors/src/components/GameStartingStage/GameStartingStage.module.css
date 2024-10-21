@@ -1,4 +1,4 @@
-.choicesContainer{
+.choicesContainer {
   background: url("../../assets/background/bg-triangle.svg") no-repeat;
   background-size: 200px 200px;
   background-position: center;
@@ -7,13 +7,29 @@
   margin: auto;
 }
 
-.firstRow{
+.firstRow {
   display: flex;
   justify-content: space-between;
 }
 
-.secondRow{
- display: flex;
- justify-content: center;
- margin-top: 20px;
+.secondRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@media (min-width: 575px) {
+  .choicesContainer {
+    height: 500px;
+    width: 600px;
+    background-size: 350px 350px;
+  }
+
+  .firstRow {
+    gap: 10%;
+  }
+
+  .secondRow {
+    margin-top: 0px;
+  }
 }
