@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 280px);
   margin: 30px auto;
 }
 
@@ -13,16 +13,37 @@
   align-items: center;
 }
 
+.rules {
+  width: 200px;
+  text-align: center;
+  margin: auto;
+}
+
 @media (min-width: 575px) {
   .container {
     flex-direction: row;
     position: relative;
-    height: calc(100vh - 275px);
+    margin: auto;
+    height: 100%;
   }
 
   .rules {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 24px;
+    right: 24px;
+  }
+
+  .customModal[open] {
+    width: 400px;
+    height: 400px;
+  }
+
+  .customModal {
+    border-radius: 10px;
+  }
+
+  .ruleContainer>img {
+    width: 100%;
+    margin: 80px auto auto auto;
   }
 }

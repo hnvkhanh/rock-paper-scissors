@@ -23,7 +23,7 @@
 @media (min-width: 575px) {
   .container {
     width: 50%;
-    margin: auto;
+    margin: 72px auto 120px auto;
     padding: 20px 25px;
     border-radius: 15px;
     border: 2px solid var(--header-outline);

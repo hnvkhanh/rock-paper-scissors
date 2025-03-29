@@ -3,6 +3,7 @@ import { DRAW, GameResult, LOSE, WIN } from "../config/types";
 
 export const randomChoice = (choices: string[]): string => {
   const randomChoiceIndex = Math.floor(Math.random() * choices.length);
+  console.log("randomChoiceIndex", randomChoiceIndex);
   return choices[randomChoiceIndex];
 }
 

@@ -25,3 +25,31 @@
   border-radius: 100px;
   background-color: var(--choice-placeholder-background);
 }
+
+@media (min-width: 575px) {
+  .container {
+    height: 70%;
+    width: 60%;
+    margin: auto;
+  }
+
+  .choicePlaceholder {
+    width: 320px;
+    height: 320px;
+    border-radius: 100%;
+  }
+
+  .choice {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .choiceText {
+    font-size: 36px;
+  }
+
+  .choiceContainer {
+    width: 400px;
+    height: 400px;
+  }
+}

@@ -5,3 +5,9 @@
   margin: 10px;
   text-transform: uppercase;
 }
+
+@media (min-width: 575px) {
+  .result {
+    font-size: 72px;
+  }
+}

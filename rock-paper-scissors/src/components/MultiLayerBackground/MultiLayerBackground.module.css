@@ -5,8 +5,10 @@
   border-radius: 50%;
   position: absolute;
   z-index: -1;
-  top: 50%; /* position the top  edge of the element at the middle of the parent */
-  left: 50%; /* position the left edge of the element at the middle of the parent */
+  top: 50%;
+  /* position the top  edge of the element at the middle of the parent */
+  left: 50%;
+  /* position the left edge of the element at the middle of the parent */
   transform: translate(-50%, -50%);
 }
 
@@ -18,4 +20,21 @@
 .background:nth-of-type(3) {
   height: 300px;
   width: 300px;
+}
+
+@media (min-width: 575px) {
+  .background {
+    height: 650px;
+    width: 650px;
+  }
+
+  .background:nth-of-type(2) {
+    height: 900px;
+    width: 900px;
+  }
+
+  .background:nth-of-type(3) {
+    height: 1200px;
+    width: 1200px;
+  }
 }

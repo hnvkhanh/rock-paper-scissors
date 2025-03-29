@@ -1,18 +1,21 @@
-import { useEffect, useState } from 'react';
-import get from 'lodash/get';
-import { DEFAULT_CHOICES } from '../../config/choices';
-import PlayerChoice from '../PlayerChoice/PlayerChoice';
-import { getResults } from '../../utils/helpers';
-import { LOSE, WIN } from '../../config/types';
+import { useEffect, useState } from "react";
+import get from "lodash/get";
+import { DEFAULT_CHOICES } from "../../config/choices";
+import PlayerChoice from "../PlayerChoice/PlayerChoice";
+import { getResults } from "../../utils/helpers";
+import { LOSE, WIN } from "../../config/types";
 
-import css from './GamePlayingStage.module.css'
+import css from "./GamePlayingStage.module.css";
 
-const GamePlayingStage = ({ updateState, playerChoice, houseChoice }: {
+const GamePlayingStage = ({
+  updateState,
+  playerChoice,
+  houseChoice,
+}: {
   updateState: (updatedScore: number) => void;
   playerChoice: string;
-  houseChoice: string
+  houseChoice: string;
 }) => {
-
   const [showHouseChoice, setShowHouseChoice] = useState(false);
   let updatedScore = 0;
   const result = getResults(playerChoice, houseChoice);
@@ -30,20 +33,30 @@ const GamePlayingStage = ({ updateState, playerChoice, houseChoice }: {
 
   if (playerChoice.length === 0) return null;
 
-  const houseChoiceComponent = showHouseChoice
-    ? <PlayerChoice properties={get(DEFAULT_CHOICES, houseChoice)} />
-    : <div className={css.choicePlaceholder}></div>;
-  return <div className={css.container}>
-    <div className={css.choice}>
-      <PlayerChoice properties={get(DEFAULT_CHOICES, playerChoice)} />
-      <p className={css.choiceText}>YOU PICKED</p>
-    </div>
+  const houseChoiceComponent = showHouseChoice ? (
+    <PlayerChoice
+      properties={get(DEFAULT_CHOICES, houseChoice)}
+      containerClassName={css.choiceContainer}
+    />
+  ) : (
+    <div className={css.choicePlaceholder}></div>
+  );
+  return (
+    <div className={css.container}>
+      <div className={css.choice}>
+        <PlayerChoice
+          properties={get(DEFAULT_CHOICES, playerChoice)}
+          containerClassName={css.choiceContainer}
+        />
+        <p className={css.choiceText}>YOU PICKED</p>
+      </div>
 
-    <div className={css.choice}>
-      {houseChoiceComponent}
-      <p className={css.choiceText}>THE HOUSE PICKED</p>
+      <div className={css.choice}>
+        {houseChoiceComponent}
+        <p className={css.choiceText}>THE HOUSE PICKED</p>
+      </div>
     </div>
-  </div>
-}
+  );
+};
 
 export default GamePlayingStage;

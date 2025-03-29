@@ -7,12 +7,14 @@ import React, {
 import closeIcon from "./images/icon-close.svg";
 
 import Button from "../Button/Button";
+import classNames from "classnames";
 
 import css from "./Modal.module.css";
 
 interface ModalComponentProps {
   children: React.ReactNode;
   title: string;
+  className?: string;
 }
 
 export type ModalRef = {
@@ -24,7 +26,7 @@ const ModalComponent: ForwardRefRenderFunction<
   ModalRef,
   ModalComponentProps
 > = (props, ref) => {
-  const { children, title } = props;
+  const { children, title, className } = props;
 
   const modalRef = useRef<HTMLDialogElement | null>(null);
 
@@ -48,7 +50,7 @@ const ModalComponent: ForwardRefRenderFunction<
   return (
     <dialog
       ref={modalRef}
-      className={css.modal}
+      className={classNames(css.modal, className)}
       onKeyDown={handleKeyDown}
     >
       <div className={css.modalTitle}>{title}</div>

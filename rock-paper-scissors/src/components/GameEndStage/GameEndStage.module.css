@@ -44,3 +44,36 @@
   padding: 20px;
   width: 80%;
 }
+
+.playAgain:hover {
+  transform: scale(1.1);  
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: var(--rock-gradient-start);
+}
+
+@media (min-width: 575px) {
+  .resultContainer {
+    position: absolute;
+    width: 320px;
+  }
+
+  .choicesContainer {
+    width: 80%;
+  }
+
+  .choice {
+    flex-direction: column-reverse;
+    gap: 20px
+  }
+
+  .choiceText {
+    font-size: 36px;
+    opacity: 0.7;
+  }
+
+  .choiceContainer {
+    width: 400px;
+    height: 400px;
+  }
+}
